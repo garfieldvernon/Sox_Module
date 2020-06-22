@@ -1,0 +1,66 @@
+{% extends  "layout.html " %}
+{% block content %}
+   <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+                <p>Owner Organization: {{ post.Section}}</p>
+                <p>
+                    {% if post.Cycle == '0' %}
+                        Cycle:
+                    {% elif post.Cycle == '1' %}
+                        Cycle: Global Access Management
+                    {% else %}
+                        Cycle: Change Management
+                    {% endif %}
+                </p>
+                <p class="article-content">Process: {{ post.Process}}</p>
+                <p class="article-content">Control: {{ post.Control}}</p>
+                <p>
+                    {% if post.Tester == '0' %}
+                        poster: TBD
+                    {% elif post.Tester == '1' %}
+                        Tester: Edouard Roland
+                    {% else %}
+                        Tester: Garfield Vernon
+                    {% endif %}
+                </p>
+                <p>
+                    {% if post.Reviewer == '0' %}
+                        Reviewer: TBD
+                    {% elif post.Reviewer == '1' %}
+                        Reviewer: Edouard Roland
+                    {% else %}
+                        Reviewer: Garfield Vernon
+                    {% endif %}
+                </p>
+                <p class="article-content">Test Description: {{ post.TestData}}</p>
+                <p>
+                    {% if post.Status == '0' %}
+                        Status: Open
+                    {% elif post.Status == '1' %}
+                        Status: Completed
+                    {% else %}
+                        Status: In Progress
+                    {% endif %}
+                </p>
+
+                <p>
+                    {% if post.Effect == '0' %}
+                        Effectiveness:
+                    {% elif post.Effect == '1' %}
+                        Effectiveness: Pass
+                    {% else %}
+                        Effectiveness: Fail
+                    {% endif %}
+                </p>
+                <p class="article-content">Due Date: {{ post.Due}}</p>
+                <p class="article-content">Category: {{ post.DateComplete}}</p>
+                <div>
+                    <a class="btn btn-secondary btn-sm m-1" href="{{url_for('updatecycle', id = post.TestId)}}">Update</a>
+                </div>
+            </div>
+          </div>
+        </article>
+{% endblock content %}
+
+
